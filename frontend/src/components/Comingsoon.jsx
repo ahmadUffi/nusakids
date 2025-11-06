@@ -112,15 +112,8 @@ export default function Hero({ className = "" }) {
               className="inline-flex items-center gap-3 px-4 py-2 rounded-md bg-amber-500 text-white font-semibold shadow-lg hover:bg-amber-600 active:scale-[.99] transition"
               aria-label="Pergi Belajar"
             >
-              🚀 Pergi Belajar
+              🚀 Tekan Saya
             </button>
-
-            <a
-              href="#learn-more"
-              className="text-sm text-slate-600 underline underline-offset-2"
-            >
-              Pelajari lebih lanjut
-            </a>
           </div>
         </div>
 
@@ -150,7 +143,7 @@ export default function Hero({ className = "" }) {
             ) : (
               <div className="flex items-center gap-3">
                 <span className="text-sm font-medium text-slate-800">
-                  ⏳ Event dimulai dalam:
+                  ⏳Segare Hadir dalam:
                 </span>
 
                 <div className="flex items-center gap-2">
