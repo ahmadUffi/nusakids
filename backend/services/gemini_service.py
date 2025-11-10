@@ -1,15 +1,29 @@
 from fastapi import HTTPException
 from fastapi.responses import Response, JSONResponse
 from config.config import settings
-from models import TtsRequest, ChatRequest, ChatImageRequest, ChatImageTextRequest
+from models import (
+    TtsRequest,
+    ChatRequest,
+    ChatImageRequest,
+    ChatImageTextRequest,
+    QuizRequest,
+    QuizResponse,
+    QuizQuestion,
+)
 from google import genai
 from google.genai import types
-from my_utils import get_context, classifier_context, return_genimage_context
+from my_utils import (
+    get_context,
+    classifier_context,
+    return_genimage_context,
+    quiz_context,
+)
 import base64
 import wave
 import io
 from io import BytesIO
 from PIL import Image
+import json
 
 
 class GeminiService:
@@ -217,6 +231,62 @@ class GeminiService:
             raise HTTPException(
                 status_code=500,
                 detail=f"Gagal menghasilkan gambar dengan teks: {str(e)}",
+            )
+
+    def quiz_generator(self, request: QuizRequest):
+        """
+        Generate quiz questions about Indonesian culture from a specific province.
+        """
+        try:
+            # Get quiz prompt from context
+            prompt = quiz_context(request.province, request.num_questions)
+
+            # Generate quiz content using Gemini
+            response = self.llm_client.models.generate_content(
+                model=self.LLM_MODEL_ID,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json"
+                ),
+            )
+
+            if not hasattr(response, "text"):
+                raise Exception("Model tidak mengembalikan teks.")
+
+            # Parse the JSON response
+            quiz_data = json.loads(response.text.strip())
+
+            # Validate and structure the response
+            questions = []
+            for q in quiz_data.get("questions", []):
+                question = QuizQuestion(
+                    question=q["question"],
+                    options=q["options"],
+                    correct_answer=q["correct_answer"],
+                    explanation=q["explanation"],
+                )
+                questions.append(question)
+
+            # Create response
+            quiz_response = QuizResponse(province=request.province, questions=questions)
+
+            return JSONResponse(content=quiz_response.model_dump(), status_code=200)
+
+        except json.JSONDecodeError as e:
+            print(f"JSON parsing error: {e}")
+            print(
+                f"Raw response: {response.text if hasattr(response, 'text') else 'No response'}"
+            )
+            raise HTTPException(
+                status_code=500, detail=f"Gagal mem-parsing response JSON: {str(e)}"
+            )
+        except Exception as e:
+            print(f"Error in quiz_generator: {e}")
+            import traceback
+
+            traceback.print_exc()
+            raise HTTPException(
+                status_code=500, detail=f"Gagal menghasilkan kuis: {str(e)}"
             )
 
 

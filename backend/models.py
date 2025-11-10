@@ -60,3 +60,22 @@ class BudayaModel(BaseModel):
     pakaian_adat: PakaianAdatModel
     alat_musik: AlatMusikModel
     url_image: str
+
+
+class QuizRequest(BaseModel):
+    province: str
+    num_questions: int = Field(
+        default=5, ge=1, le=10, description="Jumlah soal kuis (1-10)"
+    )
+
+
+class QuizQuestion(BaseModel):
+    question: str
+    options: list[str]
+    correct_answer: str
+    explanation: str
+
+
+class QuizResponse(BaseModel):
+    province: str
+    questions: list[QuizQuestion]
