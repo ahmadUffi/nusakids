@@ -34,3 +34,39 @@ def return_genimage_context(province):
     - Kemunculan arsitektur tradisional sebagai latar belakang atau elemen transisi
     - Penambahan aksesori atau benda budaya khas, seperti senjata tradisional, perhiasan, atau alat musik
     """
+
+
+def quiz_context(province: str, num_questions: int):
+    return f"""
+    Buatlah {num_questions} soal kuis pilihan ganda tentang budaya Indonesia dari provinsi {province} yang cocok untuk anak-anak.
+
+    Topik kuis mencakup:
+    - Tarian daerah
+    - Makanan khas
+    - Pakaian adat
+    - Rumah tradisional
+    - Lagu daerah
+    - Permainan tradisional
+    - Cerita rakyat
+    - Alat musik tradisional
+
+    Format output harus dalam JSON dengan struktur berikut:
+    {{
+        "questions": [
+            {{
+                "question": "Pertanyaan yang mudah dipahami anak-anak",
+                "options": ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
+                "correct_answer": "Pilihan yang benar",
+                "explanation": "Penjelasan singkat mengapa jawaban ini benar (maksimal 50 kata)"
+            }}
+        ]
+    }}
+
+    Persyaratan:
+    - Gunakan bahasa yang sangat mudah dimengerti anak-anak
+    - Setiap soal harus memiliki 4 pilihan jawaban
+    - Jawaban benar harus bervariasi posisinya (tidak selalu A atau C)
+    - Penjelasan harus singkat, jelas, dan edukatif
+    - Soal harus menarik dan tidak membosankan
+    - Hanya kembalikan JSON tanpa teks tambahan apapun
+    """

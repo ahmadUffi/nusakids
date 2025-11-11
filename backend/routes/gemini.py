@@ -1,5 +1,12 @@
 from fastapi import APIRouter
-from models import ChatRequest, TtsRequest, ChatImageRequest, ChatImageTextRequest
+from models import (
+    ChatRequest,
+    TtsRequest,
+    ChatImageRequest,
+    ChatImageTextRequest,
+    ChatImageTextRequest,
+    QuizRequest,
+)
 from services.gemini_service import gemini_service
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
@@ -23,3 +30,11 @@ async def generate_image_from_text_and_image(request: ChatImageTextRequest):
     The input image serves as a reference or base for the generation.
     """
     return gemini_service.image_text_generator(request)
+
+@router.post("/generate-quiz")
+async def generate_quiz(request: QuizRequest):
+    """
+    Generate quiz questions about Indonesian culture from a specific province.
+    Returns a list of multiple choice questions with explanations.
+    """
+    return gemini_service.quiz_generator(request)
