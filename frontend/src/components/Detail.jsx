@@ -36,7 +36,7 @@ const data = [
   {
     place: "Jawa Barat - Indonesia",
     title: "SITUS",
-    title2: "MEGALITIKUM GUNUNG PADANG",
+    title2: " GUNUNG PADANG",
     description:
       "Gunung Padang adalah situs megalitikum terbesar di Asia Tenggara yang terletak di Cianjur, Jawa Barat. Situs ini memiliki struktur batu purba yang tersusun rapi dan dipercaya memiliki nilai sejarah yang sangat penting bagi peradaban Nusantara.",
     image:
@@ -93,32 +93,32 @@ const Detail = () => {
         offsetTop: height - 250,
         offsetLeft: 20,
         cardWidth: 120,
-        cardHeight: 180,
+        cardHeight: 140,
         gap: 20,
         detailsLeft: 20,
-        detailsTop: height * 0.4,
+        detailsTop: 20,
         descWidth: width - 40,
       };
     } else if (isTablet) {
       return {
         offsetTop: height - 350,
         offsetLeft: width - 650,
-        cardWidth: 160,
-        cardHeight: 240,
+        cardWidth: 150,
+        cardHeight: 190,
         gap: 30,
         detailsLeft: 40,
-        detailsTop: 240,
+        detailsTop: 200,
         descWidth: 450,
       };
     } else {
       return {
-        offsetTop: height - 430,
-        offsetLeft: width - 830,
-        cardWidth: 200,
-        cardHeight: 300,
+        offsetTop: 430,
+        offsetLeft: 830,
+        cardWidth: 160,
+        cardHeight: 200,
         gap: 40,
         detailsLeft: 60,
-        detailsTop: 240,
+        detailsTop: 200,
         descWidth: 500,
       };
     }
@@ -421,136 +421,71 @@ const Detail = () => {
 
   return (
     <div className="detail-container">
-      <nav>
-        <div>
-          <div className="svg-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
-              />
-            </svg>
-          </div>
-          <div>NusaKids</div>
-        </div>
-        <div>
-          <div className="active">Beranda</div>
-          <div>Budaya</div>
-          <div>Destinasi</div>
-          <div>Cerita</div>
-          <div>Permainan</div>
-          <div>Kontak</div>
-          <div className="svg-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </div>
-          <div className="svg-container">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </nav>
-
-      <div id="demo">
-        {data.map((item, index) => (
-          <div key={index}>
-            <div
-              className="card"
-              id={`card${index}`}
-              style={{ backgroundImage: `url(${item.image})` }}
-            ></div>
-            <div className="card-content" id={`card-content-${index}`}>
-              <div className="content-start"></div>
-              <div className="content-place">{item.place}</div>
-              <div className="content-title-1">{item.title}</div>
-              <div className="content-title-2">{item.title2}</div>
+      <div className="flex flex-col">
+        <div className="right">
+          <div id="demo">
+            <div className="">
+              {data.map((item, index) => (
+                <div key={index}>
+                  <div
+                    className="card"
+                    id={`card${index}`}
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  ></div>
+                  <div
+                    className="card-content overflow-hidden"
+                    id={`card-content-${index}`}
+                  >
+                    <div className="content-start"></div>
+                    {/* <div className="content-place">{item.place}</div> */}
+                    <div className="content-title-1 truncate block w-full">
+                      {item.title}
+                    </div>
+                    <div className="content-title-2 truncate block w-full">
+                      {item.title2}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="details" id="details-even">
-        <div className="place-box">
-          <div className="text">{data[0].place}</div>
-        </div>
-        <div className="title-box-1">
-          <div className="title-1">{data[0].title}</div>
-        </div>
-        <div className="title-box-2">
-          <div className="title-2">{data[0].title2}</div>
-        </div>
-        <div className="desc">{data[0].description}</div>
-        <div className="cta">
-          <button className="bookmark">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <button className="discover">Jelajahi Lokasi</button>
-        </div>
-      </div>
+          <div className="details" id="details-even">
+            <div className="place-box">
+              <div className="text">{data[0].place}</div>
+            </div>
+            <div className="title-box-1">
+              <div className="title-1">{data[0].title}</div>
+            </div>
+            <div className="title-box-2">
+              <div className="title-2">{data[0].title2}</div>
+            </div>
+            <div className="desc">{data[0].description}</div>
+            <div className="cta">
+              <button className="discover">Lihat Gambar 3D</button>
+              <button className="discover">Jelajahi Lokasi</button>
+            </div>
+          </div>
 
-      <div className="details" id="details-odd">
-        <div className="place-box">
-          <div className="text">{data[0].place}</div>
+          <div className="details" id="details-odd">
+            <div className="place-box">
+              <div className="text">{data[0].place}</div>
+            </div>
+            <div className="title-box-1">
+              <div className="title-1">{data[0].title}</div>
+            </div>
+            <div className="title-box-2">
+              <div className="title-2">{data[0].title2}</div>
+            </div>
+            <div className="desc">{data[0].description}</div>
+            <div className="cta">
+              <button className="discover">Lihat Gambar 3D</button>
+              <button className="discover">Jelajahi Lokasi</button>
+            </div>
+          </div>
         </div>
-        <div className="title-box-1">
-          <div className="title-1">{data[0].title}</div>
-        </div>
-        <div className="title-box-2">
-          <div className="title-2">{data[0].title2}</div>
-        </div>
-        <div className="desc">{data[0].description}</div>
-        <div className="cta">
-          <button className="bookmark">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-          <button className="discover">Jelajahi Lokasi</button>
+        <div className="left">
+          <h1>llalal</h1>
         </div>
       </div>
 
@@ -582,18 +517,6 @@ const Detail = () => {
               d="M8.25 4.5l7.5 7.5-7.5 7.5"
             />
           </svg>
-        </div>
-        <div className="progress-sub-container">
-          <div className="progress-sub-background">
-            <div className="progress-sub-foreground"></div>
-          </div>
-        </div>
-        <div className="slide-numbers" id="slide-numbers">
-          {data.map((_, index) => (
-            <div className="item" id={`slide-item-${index}`} key={index}>
-              {index + 1}
-            </div>
-          ))}
         </div>
       </div>
 
