@@ -48,7 +48,7 @@ export default function Footer() {
         {/* </div> */}
 
         {/* Divider */}
-        <div className="border-t border-gray-300 pt-6">
+        <div className=" pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-xs text-gray-500">
               &copy; {date} NusaKids. Semua hak dilindungi.
@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="flex gap-4 text-xs text-gray-500">
               <span>Made with ❤️ for Indonesia</span>
               <span>•</span>
-              <span>Powered by AI</span>
+              <span>Powered by SemarMas</span>
             </div>
           </div>
         </div>
