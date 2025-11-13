@@ -4,13 +4,40 @@ import { Link } from "react-router-dom";
 import { ApiService } from "../services/api";
 
 const provinsiIndonesia = [
-  "Aceh", "Sumatera Utara", "Sumatera Barat", "Riau", "Jambi", "Sumatera Selatan",
-  "Bengkulu", "Lampung", "Bangka Belitung", "Kepulauan Riau", "DKI Jakarta",
-  "Jawa Barat", "Jawa Tengah", "DI Yogyakarta", "Jawa Timur", "Banten",
-  "Bali", "NTB", "NTT", "Kalimantan Barat", "Kalimantan Tengah", "Kalimantan Selatan",
-  "Kalimantan Timur", "Kalimantan Utara", "Sulawesi Utara", "Sulawesi Tengah",
-  "Sulawesi Selatan", "Sulawesi Tenggara", "Gorontalo", "Sulawesi Barat",
-  "Maluku", "Maluku Utara", "Papua", "Papua Barat"
+  "Aceh",
+  "Sumatera Utara",
+  "Sumatera Barat",
+  "Riau",
+  "Jambi",
+  "Sumatera Selatan",
+  "Bengkulu",
+  "Lampung",
+  "Bangka Belitung",
+  "Kepulauan Riau",
+  "DKI Jakarta",
+  "Jawa Barat",
+  "Jawa Tengah",
+  "DI Yogyakarta",
+  "Jawa Timur",
+  "Banten",
+  "Bali",
+  "NTB",
+  "NTT",
+  "Kalimantan Barat",
+  "Kalimantan Tengah",
+  "Kalimantan Selatan",
+  "Kalimantan Timur",
+  "Kalimantan Utara",
+  "Sulawesi Utara",
+  "Sulawesi Tengah",
+  "Sulawesi Selatan",
+  "Sulawesi Tenggara",
+  "Gorontalo",
+  "Sulawesi Barat",
+  "Maluku",
+  "Maluku Utara",
+  "Papua",
+  "Papua Barat",
 ];
 
 export default function ImageGeneratorPage() {
@@ -96,10 +123,13 @@ export default function ImageGeneratorPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <Link to="/" className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-800 transition-colors mb-6">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-800 transition-colors mb-6"
+          >
             ← Kembali ke Beranda
           </Link>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4"
@@ -107,16 +137,16 @@ export default function ImageGeneratorPage() {
             🎨 Generator Avatar Budaya
           </motion.h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Wujudkan dirimu dalam balutan pakaian adat Indonesia dengan teknologi AI yang canggih!
+            Wujudkan dirimu dalam balutan pakaian adat Indonesia dengan
+            teknologi AI yang canggih!
           </p>
         </div>
 
         {/* Main Content */}
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            
             {/* Left Side - Form */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/20"
@@ -125,17 +155,23 @@ export default function ImageGeneratorPage() {
               <div className="flex items-center justify-center mb-8">
                 {[1, 2, 3].map((num) => (
                   <div key={num} className="flex items-center">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
-                      step >= num 
-                        ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white' 
-                        : 'bg-gray-200 text-gray-500'
-                    }`}>
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
+                        step >= num
+                          ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
+                    >
                       {num}
                     </div>
                     {num < 3 && (
-                      <div className={`w-16 h-1 mx-2 transition-all ${
-                        step > num ? 'bg-gradient-to-r from-pink-500 to-purple-500' : 'bg-gray-200'
-                      }`} />
+                      <div
+                        className={`w-16 h-1 mx-2 transition-all ${
+                          step > num
+                            ? "bg-gradient-to-r from-pink-500 to-purple-500"
+                            : "bg-gray-200"
+                        }`}
+                      />
                     )}
                   </div>
                 ))}
@@ -152,10 +188,14 @@ export default function ImageGeneratorPage() {
                     className="space-y-6"
                   >
                     <div className="text-center">
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2">Upload Foto Kamu</h3>
-                      <p className="text-gray-600">Pilih foto terbaikmu untuk dijadikan avatar budaya</p>
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                        Upload Foto Kamu
+                      </h3>
+                      <p className="text-gray-600">
+                        Pilih foto terbaikmu untuk dijadikan avatar budaya
+                      </p>
                     </div>
-                    
+
                     <div className="border-2 border-dashed border-pink-300 rounded-2xl p-8 text-center hover:border-pink-400 transition-colors">
                       <input
                         type="file"
@@ -166,8 +206,12 @@ export default function ImageGeneratorPage() {
                       />
                       <label htmlFor="image-upload" className="cursor-pointer">
                         <div className="text-6xl mb-4">📸</div>
-                        <p className="text-gray-600 mb-2">Klik untuk upload foto</p>
-                        <p className="text-sm text-gray-500">PNG, JPG maksimal 4MB</p>
+                        <p className="text-gray-600 mb-2">
+                          Klik untuk upload foto
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          PNG, JPG maksimal 4MB
+                        </p>
                       </label>
                     </div>
                   </motion.div>
@@ -182,10 +226,15 @@ export default function ImageGeneratorPage() {
                     className="space-y-6"
                   >
                     <div className="text-center">
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2">Pilih Provinsi</h3>
-                      <p className="text-gray-600">Pilih pakaian adat dari provinsi mana yang ingin kamu pakai</p>
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                        Pilih Provinsi
+                      </h3>
+                      <p className="text-gray-600">
+                        Pilih pakaian adat dari provinsi mana yang ingin kamu
+                        pakai
+                      </p>
                     </div>
-                    
+
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-64 overflow-y-auto p-2">
                       {provinsiIndonesia.map((prov) => (
                         <button
@@ -193,15 +242,15 @@ export default function ImageGeneratorPage() {
                           onClick={() => setProvince(prov)}
                           className={`p-3 rounded-xl text-sm font-medium transition-all ${
                             province === prov
-                              ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                              ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                           }`}
                         >
                           {prov}
                         </button>
                       ))}
                     </div>
-                    
+
                     <button
                       onClick={handleGenerate}
                       disabled={!province}
@@ -222,8 +271,12 @@ export default function ImageGeneratorPage() {
                     {loading ? (
                       <div>
                         <div className="text-6xl mb-4">🎨</div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Sedang Membuat Avatar...</h3>
-                        <p className="text-gray-600 mb-6">AI sedang bekerja keras membuat avatar budayamu!</p>
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                          Sedang Membuat Avatar...
+                        </h3>
+                        <p className="text-gray-600 mb-6">
+                          AI sedang bekerja keras membuat avatar budayamu!
+                        </p>
                         <div className="flex justify-center">
                           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500"></div>
                         </div>
@@ -231,8 +284,12 @@ export default function ImageGeneratorPage() {
                     ) : result ? (
                       <div>
                         <div className="text-6xl mb-4">🎉</div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Avatar Budaya Siap!</h3>
-                        <p className="text-gray-600 mb-6">Gosok gambar di sebelah kanan untuk melihat hasilnya</p>
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                          Avatar Budaya Siap!
+                        </h3>
+                        <p className="text-gray-600 mb-6">
+                          Gosok gambar di sebelah kanan untuk melihat hasilnya
+                        </p>
                         <button
                           onClick={resetGenerator}
                           className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-6 rounded-2xl hover:shadow-lg transition-all"
@@ -243,7 +300,9 @@ export default function ImageGeneratorPage() {
                     ) : (
                       <div>
                         <div className="text-6xl mb-4">😔</div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Oops! Ada Kesalahan</h3>
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                          Oops! Ada Kesalahan
+                        </h3>
                         <p className="text-gray-600 mb-6">{error}</p>
                         <button
                           onClick={() => setStep(2)}
@@ -265,7 +324,7 @@ export default function ImageGeneratorPage() {
             </motion.div>
 
             {/* Right Side - Preview/Result */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/20"
@@ -273,7 +332,7 @@ export default function ImageGeneratorPage() {
               <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                 {preview ? "Preview & Hasil" : "Preview Foto"}
               </h3>
-              
+
               <div className="space-y-6">
                 {/* Original Image Preview */}
                 {preview && (
@@ -290,7 +349,9 @@ export default function ImageGeneratorPage() {
                 {/* Result with Scratch Effect */}
                 {result ? (
                   <div className="text-center">
-                    <p className="text-sm text-gray-600 mb-2">Avatar Budaya {province}:</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Avatar Budaya {province}:
+                    </p>
                     <div className="relative w-64 h-64 mx-auto">
                       {/* Simple scratch-to-reveal effect */}
                       <div className="relative group cursor-pointer">
@@ -300,7 +361,7 @@ export default function ImageGeneratorPage() {
                           className="w-full h-full object-cover rounded-2xl shadow-2xl"
                         />
                         {!scratchRevealed && (
-                          <div 
+                          <div
                             className="absolute inset-0 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-400 rounded-2xl flex items-center justify-center text-white font-bold text-lg cursor-pointer"
                             onClick={() => setScratchRevealed(true)}
                           >
@@ -317,7 +378,9 @@ export default function ImageGeneratorPage() {
                   <div className="w-64 h-64 mx-auto flex items-center justify-center border-2 border-dashed border-gray-300 rounded-2xl bg-gray-50">
                     <div className="text-center text-gray-500">
                       <div className="text-4xl mb-2">🎭</div>
-                      <p className="text-sm">Avatar budaya akan muncul di sini</p>
+                      <p className="text-sm">
+                        Avatar budaya akan muncul di sini
+                      </p>
                     </div>
                   </div>
                 )}

@@ -25,29 +25,36 @@ export default function BookReader() {
         author: "Tim NusaKids",
         pages: 25,
         coverColor: "from-emerald-500 to-teal-500",
-        province: "Jawa Barat"
+        province: "Jawa Barat",
       };
 
       // Mock content - in real app, this would come from API
       const mockContent = Array.from({ length: 25 }, (_, index) => ({
         pageNumber: index + 1,
-        title: index === 0 ? "Sangkuriang dan Tangkuban Perahu" : `Halaman ${index + 1}`,
-        content: index === 0 
-          ? `Pada zaman dahulu kala, di tanah Priangan, Jawa Barat, hiduplah seorang putri raja yang sangat cantik bernama Dayang Sumbi. Dia memiliki kesaktian dan selalu tampak muda.
+        title:
+          index === 0
+            ? "Sangkuriang dan Tangkuban Perahu"
+            : `Halaman ${index + 1}`,
+        content:
+          index === 0
+            ? `Pada zaman dahulu kala, di tanah Priangan, Jawa Barat, hiduplah seorang putri raja yang sangat cantik bernama Dayang Sumbi. Dia memiliki kesaktian dan selalu tampak muda.
 
 Suatu hari, Dayang Sumbi sedang menenun di istana. Tanpa sengaja, peralatan tenunnya terjatuh ke tanah. Karena merasa malas untuk mengambilnya, dia berkata, "Siapa yang mau mengambilkan alat tenunku, jika laki-laki akan kujadikan suami, jika perempuan akan kujadikan saudara."
 
 Ternyata yang mengambilkan adalah seekor anjing jantan bernama Tumang. Karena sudah berjanji, Dayang Sumbi terpaksa menikahi Tumang. Dari pernikahan itu, lahirlah seorang anak laki-laki yang diberi nama Sangkuriang.
 
 Sangkuriang tumbuh menjadi anak yang kuat dan pemberani. Dia gemar berburu ke hutan bersama Tumang, tanpa mengetahui bahwa Tumang adalah ayahnya sendiri.`
-          : `Ini adalah konten halaman ${index + 1} dari cerita Sangkuriang. Dalam halaman ini, kita akan melanjutkan petualangan Sangkuriang dan mengungkap lebih banyak tentang legenda Tangkuban Perahu yang terkenal di Jawa Barat.
+            : `Ini adalah konten halaman ${
+                index + 1
+              } dari cerita Sangkuriang. Dalam halaman ini, kita akan melanjutkan petualangan Sangkuriang dan mengungkap lebih banyak tentang legenda Tangkuban Perahu yang terkenal di Jawa Barat.
 
-${index % 2 === 0 
-  ? "Sangkuriang semakin mahir dalam berburu. Setiap hari dia pergi ke hutan bersama Tumang untuk mencari binatang buruan. Namun, dia tidak pernah tahu siapa sebenarnya Tumang itu."
-  : "Suatu hari, Sangkuriang tidak berhasil mendapatkan buruan apapun. Dia merasa kesal dan menyalahkan Tumang atas kegagalannya. Dalam kemarahannya, hal yang tak terduga pun terjadi."
+${
+  index % 2 === 0
+    ? "Sangkuriang semakin mahir dalam berburu. Setiap hari dia pergi ke hutan bersama Tumang untuk mencari binatang buruan. Namun, dia tidak pernah tahu siapa sebenarnya Tumang itu."
+    : "Suatu hari, Sangkuriang tidak berhasil mendapatkan buruan apapun. Dia merasa kesal dan menyalahkan Tumang atas kegagalannya. Dalam kemarahannya, hal yang tak terduga pun terjadi."
 }
 
-Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. Mari kita lanjutkan membaca untuk mengetahui apa yang terjadi selanjutnya.`
+Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. Mari kita lanjutkan membaca untuk mengetahui apa yang terjadi selanjutnya.`,
       }));
 
       setBook(mockBook);
@@ -95,14 +102,18 @@ Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. 
   const currentContent = bookContent[currentPage - 1];
 
   return (
-    <div className={`${isFullscreen ? 'fixed inset-0 z-50' : 'min-h-screen'} bg-gradient-to-br from-amber-50 via-white to-orange-50`}>
+    <div
+      className={`${
+        isFullscreen ? "fixed inset-0 z-50" : "min-h-screen"
+      } bg-gradient-to-br from-amber-50 via-white to-orange-50`}
+    >
       {/* Header Controls */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Link 
-                to="/membaca" 
+              <Link
+                to="/membaca"
                 className="text-gray-600 hover:text-gray-800 transition-colors"
               >
                 ← Kembali ke Perpustakaan
@@ -141,19 +152,31 @@ Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. 
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setFontSize("text-sm")}
-                  className={`px-3 py-1 rounded ${fontSize === "text-sm" ? "bg-blue-100 text-blue-700" : "bg-gray-100"}`}
+                  className={`px-3 py-1 rounded ${
+                    fontSize === "text-sm"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100"
+                  }`}
                 >
                   A
                 </button>
                 <button
                   onClick={() => setFontSize("text-base")}
-                  className={`px-3 py-1 rounded ${fontSize === "text-base" ? "bg-blue-100 text-blue-700" : "bg-gray-100"}`}
+                  className={`px-3 py-1 rounded ${
+                    fontSize === "text-base"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100"
+                  }`}
                 >
                   A
                 </button>
                 <button
                   onClick={() => setFontSize("text-lg")}
-                  className={`px-3 py-1 rounded ${fontSize === "text-lg" ? "bg-blue-100 text-blue-700" : "bg-gray-100"}`}
+                  className={`px-3 py-1 rounded ${
+                    fontSize === "text-lg"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100"
+                  }`}
                 >
                   A
                 </button>
@@ -197,17 +220,23 @@ Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. 
                     </h2>
 
                     {/* Page Content */}
-                    <div className={`${fontSize} leading-relaxed text-gray-700 space-y-6`}>
-                      {currentContent.content.split('\n\n').map((paragraph, index) => (
-                        <p key={index} className="text-justify">
-                          {paragraph}
-                        </p>
-                      ))}
+                    <div
+                      className={`${fontSize} leading-relaxed text-gray-700 space-y-6`}
+                    >
+                      {currentContent.content
+                        .split("\n\n")
+                        .map((paragraph, index) => (
+                          <p key={index} className="text-justify">
+                            {paragraph}
+                          </p>
+                        ))}
                     </div>
 
                     {/* Page Number */}
                     <div className="text-center mt-12 pt-8 border-t border-amber-200">
-                      <span className="text-sm text-gray-500">- {currentPage} -</span>
+                      <span className="text-sm text-gray-500">
+                        - {currentPage} -
+                      </span>
                     </div>
                   </div>
                 )}
@@ -228,20 +257,25 @@ Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. 
 
             {/* Page Dots */}
             <div className="flex items-center space-x-2">
-              {bookContent.slice(Math.max(0, currentPage - 3), Math.min(bookContent.length, currentPage + 2)).map((_, index) => {
-                const pageNum = Math.max(0, currentPage - 3) + index + 1;
-                return (
-                  <button
-                    key={pageNum}
-                    onClick={() => goToPage(pageNum)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      pageNum === currentPage 
-                        ? 'bg-blue-500 scale-125' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                );
-              })}
+              {bookContent
+                .slice(
+                  Math.max(0, currentPage - 3),
+                  Math.min(bookContent.length, currentPage + 2)
+                )
+                .map((_, index) => {
+                  const pageNum = Math.max(0, currentPage - 3) + index + 1;
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => goToPage(pageNum)}
+                      className={`w-3 h-3 rounded-full transition-all ${
+                        pageNum === currentPage
+                          ? "bg-blue-500 scale-125"
+                          : "bg-gray-300 hover:bg-gray-400"
+                      }`}
+                    />
+                  );
+                })}
             </div>
 
             <button
@@ -260,7 +294,7 @@ Cerita ini mengajarkan kita tentang pentingnya kesabaran dan tidak mudah marah. 
       <div className="fixed bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
         <div className="text-sm text-gray-600 mb-2">Progress Membaca</div>
         <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div 
+          <div
             className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
             style={{ width: `${(currentPage / bookContent.length) * 100}%` }}
           />
