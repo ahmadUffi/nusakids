@@ -2,77 +2,125 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
-// Sample Indonesian culture books data
-const cultureBooks = [
+// Data provinsi Indonesia dengan informasi budaya
+const indonesianProvinces = [
   {
-    id: "batik-indonesia",
-    title: "Keajaiban Batik Indonesia",
-    slug: "batik-indonesia",
-    description:
-      "Pelajari sejarah dan makna batik dari berbagai daerah di Indonesia",
-    cover: "/images/batik-book.jpg",
-    author: "Soekarno Hatta",
-    pages: "120 halaman",
-    color: "from-blue-500 to-indigo-600",
+    id: "aceh",
+    title: "Aceh",
+    slug: "aceh",
+    overview:
+      "Serambi Mekkah dengan kekayaan budaya Islam dan tradisi yang kuat",
+    image:
+      "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80",
+    color: "from-emerald-500 to-teal-600",
+    icon: "🕌",
   },
   {
-    id: "tarian-tradisional",
-    title: "Ragam Tarian Nusantara",
-    slug: "tarian-tradisional",
-    description:
-      "Eksplorasi keindahan tarian tradisional dari Sabang sampai Merauke",
-    cover: "/images/dance-book.jpg",
-    author: "Dewi Sartika",
-    pages: "98 halaman",
-    color: "from-purple-500 to-pink-600",
+    id: "sumatera-utara",
+    title: "Sumatera Utara",
+    slug: "sumatera-utara",
+    overview:
+      "Tanah Batak dengan Danau Toba yang memukau dan budaya yang beragam",
+    image: "/images/sumut.jpg",
+    color: "from-blue-500 to-cyan-600",
+    icon: "🏔️",
   },
   {
-    id: "kuliner-indonesia",
-    title: "Cita Rasa Nusantara",
-    slug: "kuliner-indonesia",
-    description:
-      "Jelajahi kekayaan kuliner tradisional Indonesia yang menggugah selera",
-    cover: "/images/food-book.jpg",
-    author: "Kartini Muljadi",
-    pages: "156 halaman",
+    id: "sumatera-barat",
+    title: "Sumatera Barat",
+    slug: "sumatera-barat",
+    overview:
+      "Ranah Minang dengan rumah gadang dan tradisi merantau yang terkenal",
+    image: "/images/sumbar.jpg",
+    color: "from-amber-500 to-orange-600",
+    icon: "🏠",
+  },
+  {
+    id: "riau",
+    title: "Riau",
+    slug: "riau",
+    overview: "Negeri Melayu dengan istana megah dan seni budaya yang memesona",
+    image: "/images/riau.jpg",
+    color: "from-purple-500 to-indigo-600",
+    icon: "👑",
+  },
+  {
+    id: "kepulauan-riau",
+    title: "Kepulauan Riau",
+    slug: "kepulauan-riau",
+    overview: "Pulau seribu dengan pantai eksotis dan budaya maritim yang kaya",
+    image: "/images/kepri.jpg",
+    color: "from-cyan-500 to-blue-600",
+    icon: "🏝️",
+  },
+  {
+    id: "jambi",
+    title: "Jambi",
+    slug: "jambi",
+    overview: "Bumi Sepucuk Jamang dengan sejarah kerajaan dan kearifan lokal",
+    image: "/images/jambi.jpg",
+    color: "from-green-500 to-emerald-600",
+    icon: "🌿",
+  },
+  {
+    id: "sumatera-selatan",
+    title: "Sumatera Selatan",
+    slug: "sumatera-selatan",
+    overview:
+      "Bumi Sriwijaya dengan warisan sejarah maritim dan songket yang indah",
+    image: "/images/sumsel.jpg",
+    color: "from-red-500 to-rose-600",
+    icon: "⛵",
+  },
+  {
+    id: "bangka-belitung",
+    title: "Bangka Belitung",
+    slug: "bangka-belitung",
+    overview: "Negeri Serumpun Sebalai dengan pantai menawan dan tambang timah",
+    image: "/images/babel.jpg",
+    color: "from-slate-500 to-gray-600",
+    icon: "⚡",
+  },
+  {
+    id: "bengkulu",
+    title: "Bengkulu",
+    slug: "bengkulu",
+    overview: "Bumi Rafflesia dengan pantai panjang dan sejarah kolonial",
+    image: "/images/bengkulu.jpg",
+    color: "from-pink-500 to-rose-600",
+    icon: "🌺",
+  },
+  {
+    id: "lampung",
+    title: "Lampung",
+    slug: "lampung",
+    overview: "Bumi Ruwa Jurai dengan budaya Siger dan kopi robusta terbaik",
+    image: "/images/lampung.jpg",
+    color: "from-yellow-500 to-amber-600",
+    icon: "☕",
+  },
+  {
+    id: "dki-jakarta",
+    title: "DKI Jakarta",
+    slug: "dki-jakarta",
+    overview: "Ibu kota dengan perpaduan budaya modern dan tradisi Betawi",
+    image: "/images/jakarta.jpg",
     color: "from-orange-500 to-red-600",
+    icon: "🏙️",
   },
   {
-    id: "rumah-adat",
-    title: "Arsitektur Rumah Adat",
-    slug: "rumah-adat",
-    description:
-      "Keunikan dan filosofi rumah adat dari berbagai suku di Indonesia",
-    cover: "/images/house-book.jpg",
-    author: "Diponegoro Ahmad",
-    pages: "134 halaman",
+    id: "jawa-barat",
+    title: "Jawa Barat",
+    slug: "jawa-barat",
+    overview: "Tatar Sunda dengan budaya yang halus dan pemandangan yang asri",
+    image: "/images/jabar.jpg",
     color: "from-green-500 to-teal-600",
-  },
-  {
-    id: "musik-tradisional",
-    title: "Harmoni Musik Tradisional",
-    slug: "musik-tradisional",
-    description: "Mengenal alat musik dan lagu daerah dari seluruh Indonesia",
-    cover: "/images/music-book.jpg",
-    author: "Cut Nyak Dhien",
-    pages: "89 halaman",
-    color: "from-yellow-500 to-orange-600",
-  },
-  {
-    id: "kerajinan-tangan",
-    title: "Seni Kerajinan Nusantara",
-    slug: "kerajinan-tangan",
-    description:
-      "Keterampilan dan keindahan kerajinan tangan tradisional Indonesia",
-    cover: "/images/craft-book.jpg",
-    author: "Raden Ajeng Kartini",
-    pages: "145 halaman",
-    color: "from-pink-500 to-purple-600",
+    icon: "🎋",
   },
 ];
 
 export default function MembacaPage() {
-  const [hoveredBook, setHoveredBook] = useState(null);
+  const [hoveredProvince, setHoveredProvince] = useState(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-8">
@@ -90,83 +138,80 @@ export default function MembacaPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
           >
-            📚 Buku Budaya Indonesia
+            🇮🇩 38 Provinsi Yang Ada Di Indonesia
           </motion.h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Jelajahi kekayaan budaya Indonesia melalui koleksi buku digital yang
-            menarik dan edukatif
+            Jelajahi keindahan dan kekayaan budaya dari setiap provinsi di
+            Indonesia
           </p>
         </div>
 
-        {/* Books Grid */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cultureBooks.map((book, index) => (
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto mb-12">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Cari Provinsi"
+              className="w-full px-4 py-3 pl-12 bg-white rounded-2xl shadow-lg border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700"
+            />
+            <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+              🔍
+            </div>
+          </div>
+        </div>
+
+        {/* Provinces Grid */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {indonesianProvinces.map((province, index) => (
               <motion.div
-                key={book.id}
+                key={province.id}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group perspective-1000"
-                onMouseEnter={() => setHoveredBook(book.id)}
-                onMouseLeave={() => setHoveredBook(null)}
+                transition={{ delay: index * 0.05 }}
+                className="group"
+                onMouseEnter={() => setHoveredProvince(province.id)}
+                onMouseLeave={() => setHoveredProvince(null)}
               >
-                <Link to={`/membaca/${book.slug}`}>
-                  <div className="relative transform-style-preserve-3d transition-all duration-500 hover:scale-105">
-                    {/* Book Cover */}
-                    <div
-                      className={`relative bg-gradient-to-br ${
-                        book.color
-                      } rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-300 transform ${
-                        hoveredBook === book.id ? "rotate-y-12" : ""
-                      }`}
-                    >
-                      {/* Book Spine Effect */}
-                      <div className="absolute inset-y-0 left-0 w-2 bg-black/20 rounded-l-2xl"></div>
-
-                      {/* Content */}
-                      <div className="relative z-10 text-white">
-                        <div className="flex justify-between items-start mb-4">
-                          <div className="text-2xl">📖</div>
-                          <div className="text-xs bg-white/20 px-2 py-1 rounded-full">
-                            {book.pages}
-                          </div>
-                        </div>
-
-                        <h3 className="text-xl font-bold mb-3 line-clamp-2">
-                          {book.title}
-                        </h3>
-
-                        <p className="text-white/90 text-sm mb-4 line-clamp-3">
-                          {book.description}
-                        </p>
-
-                        <div className="flex justify-between items-center">
-                          <div className="text-sm">
-                            <p className="text-white/80">Oleh:</p>
-                            <p className="font-medium">{book.author}</p>
-                          </div>
-                          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                            <span className="text-lg">→</span>
-                          </div>
-                        </div>
+                <Link to={`/membaca/${province.slug}`}>
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group-hover:scale-105">
+                    {/* Province Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <div
+                        className={`absolute inset-0 bg-linear-to-br ${province.color} opacity-90`}
+                      ></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {province.image ? (
+                          <img
+                            src={province.image}
+                            alt={province.title}
+                            className="object-cover"
+                          />
+                        ) : (
+                          <span className="text-6xl">{province.icon}</span>
+                        )}
                       </div>
-
-                      {/* Hover Effect */}
-                      <div className="absolute inset-0 bg-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
 
-                    {/* Book Pages Effect */}
-                    <div
-                      className={`absolute top-1 left-1 right-1 bottom-1 bg-white/50 rounded-2xl -z-10 transform ${
-                        hoveredBook === book.id ? "translate-x-1" : ""
-                      } transition-transform duration-300`}
-                    ></div>
-                    <div
-                      className={`absolute top-2 left-2 right-2 bottom-2 bg-white/30 rounded-2xl -z-20 transform ${
-                        hoveredBook === book.id ? "translate-x-2" : ""
-                      } transition-transform duration-300`}
-                    ></div>
+                    {/* Province Info */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                        {province.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm line-clamp-3 leading-relaxed">
+                        {province.overview}
+                      </p>
+
+                      {/* Read More Button */}
+                      <div className="mt-4 flex items-center text-blue-500 text-sm font-medium group-hover:text-blue-700 transition-colors">
+                        <span>Pelajari Lebih Lanjut</span>
+                        <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
+                          →
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -176,21 +221,6 @@ export default function MembacaPage() {
 
         {/* Custom Styles */}
         <style jsx>{`
-          .perspective-1000 {
-            perspective: 1000px;
-          }
-          .transform-style-preserve-3d {
-            transform-style: preserve-3d;
-          }
-          .rotate-y-12 {
-            transform: rotateY(12deg);
-          }
-          .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-          }
           .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;

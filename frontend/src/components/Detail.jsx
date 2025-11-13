@@ -484,10 +484,6 @@ const Detail = () => {
           <button className="discover">Lihat Gambar 3D</button>
           <button className="discover">Jelajahi Lokasi</button>
         </div>
-
-        <div className="left">
-          <h1>llalal</h1>
-        </div>
       </div>
 
       <div className="pagination" id="pagination">
