@@ -14,7 +14,7 @@ export default function Footer() {
       className="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-700 py-12 mt-16 border-t border-gray-200"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div className="text-center md:text-left">
             <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               NusaKids
@@ -23,9 +23,9 @@ export default function Footer() {
               Platform edukasi interaktif untuk anak-anak Indonesia, belajar
               sambil bermain dan berbudaya Berbasis AI.
             </p>
-          </div>
+          </div> */}
 
-          <div className="text-center">
+        {/* <div className="text-center">
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Fitur</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>🎯 Pembelajaran Interaktif</li>
@@ -33,17 +33,19 @@ export default function Footer() {
               <li>🎨 Kreasi Digital</li>
               <li>📚 Budaya Nusantara</li>
             </ul>
-          </div>
+          </div> */}
 
-          <div className="text-center md:text-right">
-            <h3 className="text-lg font-semibold mb-4 text-gray-800">Kontak</h3>
-            <div className="space-y-2 text-sm text-gray-600">
+        {/* <div className="text-start md:text-right">
+            <h3 className="text-lg font-semibold mb-4 text-gray-800 text-start">
+              Kontak
+            </h3>
+            <div className="space-y-2 text-sm text-gray-600 text-start">
               <p>📧 info@nusakids.id</p>
               <p>🌐 www.nusakids.id</p>
               <p>🇮🇩 Indonesia</p>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
 
         {/* Divider */}
         <div className="border-t border-gray-300 pt-6">
