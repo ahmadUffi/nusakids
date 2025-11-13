@@ -18,7 +18,7 @@ function App() {
         <Route path="/detail" element={<Detail />} />
         <Route path="/membaca" element={<MembacaPage />} />
         <Route path="/membaca/:id" element={<Detail />} />
-        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/quiz" element={<ChatPage />} />
         <Route path="/imagegenerator" element={<ImageGeneratorPage />} />
         <Route path="/legacy" element={<ThreeCarouselLayout />} />
       </Routes>

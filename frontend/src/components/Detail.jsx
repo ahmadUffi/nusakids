@@ -4,61 +4,56 @@ import "./Detail.css";
 import ModelViewer from "./ModelViewer";
 import { LightRays } from "./ui/light-rays";
 import useResponsive from "../hooks/useResponsive";
+import FloatChat from "./FloatChat";
 
 const data = [
   {
     place: "Jawa Tengah - Indonesia",
-    title: "CANDI",
-    title2: "BOROBUDUR",
+    title: "PAKAIAN ADAT",
+    title2: "KEBAYA JAWA",
     description:
-      "Candi Borobudur adalah candi Buddha terbesar di dunia yang terletak di Magelang, Jawa Tengah. Dibangun pada abad ke-9, candi ini memiliki arsitektur megah dengan 2.672 panel relief dan 504 arca Buddha. Borobudur menjadi destinasi wisata spiritual dan budaya yang menakjubkan.",
-    image:
-      "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&q=80",
+      "Kebaya Jawa adalah pakaian tradisional wanita Jawa yang memiliki keanggunan dan kesederhanaan. Terbuat dari bahan berkualitas tinggi dengan bordir yang rumit, kebaya melambangkan sopan santun dan budi pekerti luhur dalam budaya Jawa. Biasanya dipadukan dengan kain batik dan sanggul tradisional.",
+    image: "/images/example1.png",
   },
   {
     place: "Bali - Indonesia",
-    title: "PURA",
-    title2: "TANAH LOT",
+    title: "ALAT MUSIK",
+    title2: "GAMELAN BALI",
     description:
-      "Pura Tanah Lot adalah pura Hindu yang terletak di atas batu karang besar di tepi laut. Pura ini menjadi salah satu ikon Bali yang paling terkenal dengan pemandangan sunset yang memukau. Tanah Lot memiliki nilai spiritual tinggi bagi umat Hindu Bali.",
-    image:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
-  },
-  {
-    place: "Yogyakarta - Indonesia",
-    title: "KERATON",
-    title2: "YOGYAKARTA",
-    description:
-      "Keraton Yogyakarta atau Kraton Ngayogyakarta Hadiningrat adalah istana resmi Kesultanan Yogyakarta. Keraton ini menjadi pusat kebudayaan Jawa dengan arsitektur tradisional yang indah, museum, dan pertunjukan seni budaya seperti tari dan gamelan.",
-    image:
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
-  },
-  {
-    place: "Jawa Barat - Indonesia",
-    title: "SITUS",
-    title2: " GUNUNG PADANG",
-    description:
-      "Gunung Padang adalah situs megalitikum terbesar di Asia Tenggara yang terletak di Cianjur, Jawa Barat. Situs ini memiliki struktur batu purba yang tersusun rapi dan dipercaya memiliki nilai sejarah yang sangat penting bagi peradaban Nusantara.",
-    image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80",
+      "Gamelan Bali adalah ensemble musik tradisional yang terdiri dari berbagai instrumen perkusi logam, bambu, dan kayu. Musik gamelan mengiringi upacara keagamaan, tarian, dan pertunjukan wayang. Setiap desa di Bali memiliki sekehe gamelan yang menjadi kebanggaan masyarakat setempat.",
+    image: "/images/example2.png",
   },
   {
     place: "Sumatera Barat - Indonesia",
-    title: "RUMAH",
-    title2: "GADANG",
+    title: "RUMAH ADAT",
+    title2: "RUMAH GADANG",
     description:
-      "Rumah Gadang adalah rumah adat Minangkabau yang memiliki atap berbentuk tanduk kerbau. Rumah ini merupakan simbol kebudayaan Minangkabau dengan ukiran kayu yang indah dan filosofi yang mendalam tentang kehidupan masyarakat Minang.",
-    image:
-      "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?w=800&q=80",
+      "Rumah Gadang adalah rumah adat Minangkabau yang memiliki atap berbentuk tanduk kerbau (gonjong). Rumah ini merupakan simbol kebudayaan Minangkabau dengan ukiran kayu yang indah dan filosofi yang mendalam tentang kehidupan masyarakat Minang. Konstruksinya menggunakan sistem pasak tanpa paku.",
+    image: "/images/example1.png",
   },
   {
-    place: "Nusa Tenggara Timur - Indonesia",
-    title: "PULAU",
-    title2: "KOMODO",
+    place: "Jakarta - Indonesia",
+    title: "MUSEUM",
+    title2: "NASIONAL",
     description:
-      "Pulau Komodo adalah rumah bagi komodo, hewan purba terbesar di dunia. Pulau ini menjadi Taman Nasional Komodo yang dilindungi UNESCO dengan pemandangan alam yang eksotis, pantai pink, dan keanekaragaman hayati laut yang luar biasa.",
-    image:
-      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=800&q=80",
+      "Museum Nasional Indonesia atau Museum Gajah adalah museum terbesar dan tertua di Indonesia. Didirikan pada tahun 1778, museum ini menyimpan lebih dari 140.000 koleksi artefak sejarah, etnografi, arkeologi, numismatik, dan geografi yang menceritakan kekayaan budaya Nusantara dari masa prasejarah hingga modern.",
+    image: "/images/example2.png",
+  },
+  {
+    place: "Aceh - Indonesia",
+    title: "PAKAIAN ADAT",
+    title2: "ULEE BALANG",
+    description:
+      "Ulee Balang adalah pakaian adat pria Aceh yang mencerminkan keagungan dan martabat. Terdiri dari baju meukasah, celana cekak musang, rencong, dan kopiah meukeutop. Pakaian ini menggambarkan nilai-nilai Islam yang kuat dan tradisi kesultanan Aceh yang bersejarah.",
+    image: "/images/example1.png",
+  },
+  {
+    place: "Aceh - Indonesia",
+    title: "MAKANAN KHAS",
+    title2: "DAERAH",
+    description:
+      "Ulee Balang adalah pakaian adat pria Aceh yang mencerminkan keagungan dan martabat. Terdiri dari baju meukasah, celana cekak musang, rencong, dan kopiah meukeutop. Pakaian ini menggambarkan nilai-nilai Islam yang kuat dan tradisi kesultanan Aceh yang bersejarah.",
+    image: "/images/example1.png",
   },
 ];
 
@@ -95,8 +90,8 @@ const Detail = () => {
         cardWidth: 120,
         cardHeight: 140,
         gap: 20,
-        detailsLeft: 20,
-        detailsTop: 20,
+        detailsLeft: 40,
+        detailsTop: 40,
         descWidth: width - 40,
         paginationTop: height - 80,
         paginationLeft: 20,
@@ -111,20 +106,20 @@ const Detail = () => {
         detailsLeft: 40,
         detailsTop: 200,
         descWidth: 450,
-        paginationTop: height - 350,
-        paginationLeft: width - 650,
+        paginationTop: height - 250,
+        paginationLeft: width - 750,
       };
     } else {
       return {
-        offsetTop: height - 220,
+        offsetTop: height - 320,
         offsetLeft: 830,
-        cardWidth: 160,
-        cardHeight: 200,
+        cardWidth: 200,
+        cardHeight: 260,
         gap: 40,
         detailsLeft: 60,
-        detailsTop: 200,
+        detailsTop: 100,
         descWidth: 500,
-        paginationTop: height - 125,
+        paginationTop: height - 205,
         paginationLeft: 750,
       };
     }
@@ -184,12 +179,19 @@ const Detail = () => {
         height: height,
       });
       gsap.set(getCardContent(active), { x: 0, y: 0, opacity: 0 });
+      // Always set top for both details
+      gsap.set("#details-even", {
+        top: offsets.detailsTop,
+        left: offsets.detailsLeft,
+      });
+      gsap.set("#details-odd", {
+        top: offsets.detailsTop,
+        left: offsets.detailsLeft,
+      });
       gsap.set(detailsActive, {
         opacity: 0,
         zIndex: 22,
         x: -200,
-        left: offsets.detailsLeft,
-        top: offsets.detailsTop,
       });
       gsap.set(detailsInactive, { opacity: 0, zIndex: 12 });
       gsap.set(`${detailsInactive} .text`, { y: 100 });
@@ -284,6 +286,16 @@ const Detail = () => {
     document.querySelector(`${detailsActive} .desc`).textContent =
       activeData.description;
 
+    // Always set top for both details on step
+    const offsetsStep = getOffsets();
+    gsap.set("#details-even", {
+      top: offsetsStep.detailsTop,
+      left: offsetsStep.detailsLeft,
+    });
+    gsap.set("#details-odd", {
+      top: offsetsStep.detailsTop,
+      left: offsetsStep.detailsLeft,
+    });
     gsap.set(detailsActive, { zIndex: 22 });
     gsap.to(detailsActive, { opacity: 1, delay: 0.4, ease });
     gsap.to(`${detailsActive} .text`, {
@@ -465,7 +477,12 @@ const Detail = () => {
         <div className="desc">{data[0].description}</div>
         <div className="cta">
           <button className="discover">Lihat Gambar 3D</button>
-          <button className="discover">Jelajahi Lokasi</button>
+          <button
+            className="discover"
+            onClick={() => alert("Fitur dalam pengembangan")}
+          >
+            Coba Quiz
+          </button>
         </div>
       </div>
 
@@ -482,7 +499,12 @@ const Detail = () => {
         <div className="desc">{data[0].description}</div>
         <div className="cta">
           <button className="discover">Lihat Gambar 3D</button>
-          <button className="discover">Jelajahi Lokasi</button>
+          <button
+            classttonName="discover"
+            onClick={() => alert("Fitur dalam pengembangan")}
+          >
+            Coba Quiz
+          </button>
         </div>
       </div>
 
@@ -504,6 +526,9 @@ const Detail = () => {
       </div>
 
       <div className="cover"></div>
+      <FloatChat
+        provinsi={data[currentIndex]?.place?.split(" - ")[0] || "Indonesia"}
+      />
     </div>
   );
 };

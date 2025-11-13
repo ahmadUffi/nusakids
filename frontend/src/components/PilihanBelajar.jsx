@@ -43,20 +43,20 @@ export default function PilihanBelajar() {
     },
     {
       id: 3,
-      title: "Chat dengan Saraswati",
-      subtitle: "Asisten AI Budaya Indonesia",
+      title: "Asah Pengetahuanmu Dengan Quiz",
+      subtitle: "Quiz Budaya Indonesia",
       description:
-        "Ngobrol langsung dengan Saraswati, asisten AI yang ahli dalam budaya Indonesia. Tanyakan apa saja tentang tradisi, sejarah, dan kearifan lokal Nusantara dengan cara yang menyenangkan.",
+        "Uji pengetahuanmu tentang budaya Indonesia dengan berbagai pertanyaan seru seputar tradisi, rumah adat, pakaian adat, alat musik, dan sejarah Nusantara. Raih skor tertinggi dan jadilah juara budaya!",
       features: [
-        "💬 Chat Real-time",
-        "🧠 AI Saraswati",
-        "🎯 Budaya Indonesia",
-        "🗣️ Interaksi Natural",
+        "📚 Soal Pilihan Ganda",
+        "🎨 Budaya Indonesia",
+        "🏆 Dapatkan Badge",
+        "🎓 Edukasi Budaya Nusantara",
       ],
       image: "/images/berbicara.jpeg",
       videoPlaceholder:
         "https://via.placeholder.com/600x400/10B981/FFFFFF?text=Chat+Interface",
-      navigate: "/chat",
+      navigate: "/quiz",
       gradient: "from-green-500 to-teal-600",
       bgPattern: "bg-gradient-to-br from-green-50 to-teal-50",
     },

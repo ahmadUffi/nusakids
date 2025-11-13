@@ -2,8 +2,8 @@
 
 .detail-container {
   margin: 0;
-  background: linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #cd853f 100%);
-  color: #ffffffdd;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+  color: #2d3748;
   position: relative;
   overflow: hidden;
   font-family: "Inter", sans-serif;
@@ -25,8 +25,10 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: #ffffffdd;
+  color: #2d3748;
   padding-left: 16px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  font-weight: 600;
 }
 
 .content-place {
@@ -46,7 +48,7 @@
   width: 30px;
   height: 5px;
   border-radius: 99px;
-  background: linear-gradient(90deg, #ffd700, #ff6347);
+  background: linear-gradient(90deg, #3182ce, #805ad5);
 }
 
 .details {
@@ -75,7 +77,7 @@
   width: 30px;
   height: 4px;
   border-radius: 99px;
-  background: linear-gradient(90deg, #ffd700, #ff6347);
+  background: linear-gradient(90deg, #3182ce, #805ad5);
 }
 
 .details .title-1,
@@ -108,7 +110,7 @@
 
 .details > .cta > .bookmark {
   border: none;
-  background: linear-gradient(135deg, #ff6347, #ffd700);
+  background: linear-gradient(135deg, #3182ce, #805ad5);
   width: 36px;
   height: 36px;
   border-radius: 99px;
@@ -117,12 +119,12 @@
   place-items: center;
   cursor: pointer;
   transition: transform 0.2s;
-  box-shadow: 0 4px 6px rgba(255, 99, 71, 0.3);
+  box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
 }
 
 .details > .cta > .bookmark:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(255, 99, 71, 0.5);
+  box-shadow: 0 6px 12px rgba(49, 130, 206, 0.5);
 }
 
 .details > .cta > .bookmark svg {
@@ -131,28 +133,26 @@
 }
 
 .details > .cta > .discover {
-  border: 2px solid #ffd700;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 99, 71, 0.2),
-    rgba(255, 215, 0, 0.2)
-  );
-  height: 36px;
-  border-radius: 99px;
-  color: #ffd700;
-  padding: 4px 24px;
-  font-size: 12px;
+  border: none;
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  padding: 8px 24px;
+  font-size: 13px;
   margin-left: 16px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .details > .cta > .discover:hover {
-  background: linear-gradient(135deg, #ff6347, #ffd700);
-  color: white;
-  border-color: #ff6347;
+  background: linear-gradient(135deg, #3182ce, #2b77cb);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.6);
 }
 
 /* .indicator {
@@ -177,32 +177,29 @@
 
 .pagination > .arrow {
   z-index: 60;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
-  border: 2px solid #ffd700;
+  border: none;
   display: grid;
   place-items: center;
   cursor: pointer;
   transition: all 0.3s;
-  background: rgba(255, 215, 0, 0.1);
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.4);
 }
 
 .pagination > .arrow:hover {
-  border-color: #ff6347;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 99, 71, 0.3),
-    rgba(255, 215, 0, 0.3)
-  );
+  background: linear-gradient(135deg, #3182ce, #2b77cb);
   transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.6);
 }
 
 .pagination > .arrow svg {
   width: 24px;
   height: 24px;
   stroke-width: 2;
-  color: #ffffff99;
+  color: white;
 }
 
 .pagination .progress-sub-container {
@@ -259,6 +256,7 @@
   background-color: #000;
   opacity: 0.7;
   z-index: 100;
+  pointer-events: none;
 }
 
 /* Responsive Design for Tablets */

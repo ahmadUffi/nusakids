@@ -39,7 +39,7 @@ export default function Hero({ className = "" }) {
 
   const thisYear = new Date().getFullYear();
   const targetDate = useMemo(
-    () => new Date(`${thisYear}-11-16T00:00:00`),
+    () => new Date(`${thisYear}-11-17T00:00:00`),
     [thisYear]
   );
 
