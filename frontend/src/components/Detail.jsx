@@ -98,6 +98,8 @@ const Detail = () => {
         detailsLeft: 20,
         detailsTop: 20,
         descWidth: width - 40,
+        paginationTop: height - 80,
+        paginationLeft: 20,
       };
     } else if (isTablet) {
       return {
@@ -109,10 +111,12 @@ const Detail = () => {
         detailsLeft: 40,
         detailsTop: 200,
         descWidth: 450,
+        paginationTop: height - 350,
+        paginationLeft: width - 650,
       };
     } else {
       return {
-        offsetTop: 430,
+        offsetTop: height - 220,
         offsetLeft: 830,
         cardWidth: 160,
         cardHeight: 200,
@@ -120,10 +124,11 @@ const Detail = () => {
         detailsLeft: 60,
         detailsTop: 200,
         descWidth: 500,
+        paginationTop: height - 125,
+        paginationLeft: 750,
       };
     }
   };
-
   useEffect(() => {
     // Load all images first
     const loadImages = async () => {
@@ -165,13 +170,12 @@ const Detail = () => {
       const offsets = getOffsets();
 
       gsap.set("#pagination", {
-        top: offsets.offsetTop + offsets.cardHeight + 30,
-        left: offsets.offsetLeft,
+        top: offsets.paginationTop,
+        left: offsets.paginationLeft,
         y: 200,
         opacity: 0,
         zIndex: 60,
       });
-      gsap.set("nav", { y: -200, opacity: 0 });
 
       gsap.set(getCard(active), {
         x: 0,
@@ -421,89 +425,72 @@ const Detail = () => {
 
   return (
     <div className="detail-container">
-      <div className="flex flex-col">
-        <div className="right">
-          <div id="demo">
-            <div className="">
-              {data.map((item, index) => (
-                <div key={index}>
-                  <div
-                    className="card"
-                    id={`card${index}`}
-                    style={{ backgroundImage: `url(${item.image})` }}
-                  ></div>
-                  <div
-                    className="card-content overflow-hidden"
-                    id={`card-content-${index}`}
-                  >
-                    <div className="content-start"></div>
-                    {/* <div className="content-place">{item.place}</div> */}
-                    <div className="content-title-1 truncate block w-full">
-                      {item.title}
-                    </div>
-                    <div className="content-title-2 truncate block w-full">
-                      {item.title2}
-                    </div>
-                  </div>
+      <div id="demo">
+        <div className="">
+          {data.map((item, index) => (
+            <div key={index}>
+              <div
+                className="card"
+                id={`card${index}`}
+                style={{ backgroundImage: `url(${item.image})` }}
+              ></div>
+              <div
+                className="card-content overflow-hidden"
+                id={`card-content-${index}`}
+              >
+                <div className="content-start"></div>
+                {/* <div className="content-place">{item.place}</div> */}
+                <div className="content-title-1 truncate block w-full">
+                  {item.title}
                 </div>
-              ))}
+                <div className="content-title-2 truncate block w-full">
+                  {item.title2}
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div className="details" id="details-even">
-            <div className="place-box">
-              <div className="text">{data[0].place}</div>
-            </div>
-            <div className="title-box-1">
-              <div className="title-1">{data[0].title}</div>
-            </div>
-            <div className="title-box-2">
-              <div className="title-2">{data[0].title2}</div>
-            </div>
-            <div className="desc">{data[0].description}</div>
-            <div className="cta">
-              <button className="discover">Lihat Gambar 3D</button>
-              <button className="discover">Jelajahi Lokasi</button>
-            </div>
-          </div>
-
-          <div className="details" id="details-odd">
-            <div className="place-box">
-              <div className="text">{data[0].place}</div>
-            </div>
-            <div className="title-box-1">
-              <div className="title-1">{data[0].title}</div>
-            </div>
-            <div className="title-box-2">
-              <div className="title-2">{data[0].title2}</div>
-            </div>
-            <div className="desc">{data[0].description}</div>
-            <div className="cta">
-              <button className="discover">Lihat Gambar 3D</button>
-              <button className="discover">Jelajahi Lokasi</button>
-            </div>
-          </div>
+          ))}
         </div>
+      </div>
+
+      <div className="details" id="details-even">
+        <div className="place-box">
+          <div className="text">{data[0].place}</div>
+        </div>
+        <div className="title-box-1">
+          <div className="title-1">{data[0].title}</div>
+        </div>
+        <div className="title-box-2">
+          <div className="title-2">{data[0].title2}</div>
+        </div>
+        <div className="desc">{data[0].description}</div>
+        <div className="cta">
+          <button className="discover">Lihat Gambar 3D</button>
+          <button className="discover">Jelajahi Lokasi</button>
+        </div>
+      </div>
+
+      <div className="details" id="details-odd">
+        <div className="place-box">
+          <div className="text">{data[0].place}</div>
+        </div>
+        <div className="title-box-1">
+          <div className="title-1">{data[0].title}</div>
+        </div>
+        <div className="title-box-2">
+          <div className="title-2">{data[0].title2}</div>
+        </div>
+        <div className="desc">{data[0].description}</div>
+        <div className="cta">
+          <button className="discover">Lihat Gambar 3D</button>
+          <button className="discover">Jelajahi Lokasi</button>
+        </div>
+
         <div className="left">
           <h1>llalal</h1>
         </div>
       </div>
 
       <div className="pagination" id="pagination">
-        <div className="arrow arrow-left" onClick={handlePrev}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
-          </svg>
-        </div>
         <div className="arrow arrow-right" onClick={handleNext}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -169,7 +169,7 @@
 .pagination {
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: 100px;
   display: inline-flex;
   align-items: center;
   gap: 20px;
