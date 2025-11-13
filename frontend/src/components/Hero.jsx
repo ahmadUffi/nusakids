@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import ModelViewer from "./ModelViewer";
-import { WordRotate } from "./ui/word-rotate";
+import { WordRotate } from "./magicui/word-rotate";
 import useResponsive from "../hooks/useResponsive";
 import Button from "./ui/Button";
 import { LightRays } from "./ui/light-rays";
@@ -58,6 +58,37 @@ export default function Hero({ className = "" }) {
   }, [deviceName]);
   if (!deviceName) return;
 
+  const smoothScrollTo = (targetId, duration = 10000) => {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const targetPosition =
+      target.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+
+      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+
+    // Easing function for smooth effect
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
+
+    requestAnimationFrame(animation);
+  };
+
   const handleclick = async () => {
     setIsgo(true);
     // Play audio
@@ -67,6 +98,7 @@ export default function Hero({ className = "" }) {
     });
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
+    smoothScrollTo("start", 15000);
   };
   return (
     <section
